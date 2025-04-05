@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- head
+
+        Purpose:
+        - Title used here shows up in the browser tab
+        - Link to the favicon (small image that appears in the browser tab)
+        - Link to the CSS file (used to style the webpage)
+
+        When To Modify:
+        - [ ] Project 2 (REQUIRED FEATURE) 
+        - [ ] Project 2 (STRETCH FEATURE) (favicon)
+        - [ ] Any time after
+        -->
+    <link rel="icon" type="image/png" href="img/wedding.png">
+    <link rel="stylesheet" href="styles.css">
+    <title>Alicia & Stevie's Wedding</title>
+</head>
+
+<body>
+
+    <!-- navbar [PLACEHOLDER] [ADDED IN UNIT 4] -->
+    <!-- navbar
+
+Purpose:
+- Navigation bar that allows users to jump to different sections of the webpage
+- Also holds buttons for user settings (dark mode, reduce motion)
+
+When To Modify:
+- [ ] Project 4 (REQUIRED FEATURE)
+- [ ] Project 5 (REQUIRED FEATURE) 
+- [ ] Project 8 (STRETCH FEATURE) 
+- [ ] Any time between / after
+-->
+    <div class="navbar">
+        <ul>
+            <li><a href="#about" data-i18n="nav.about">About</a></li>
+            <li><a href="#schedule" data-i18n="nav.schedule">Schedule</a></li>
+            <li><a href="#RSVP" data-i18n="nav.rsvp">RSVP</a></li>
+            <li><a href="https://m.4008887979.com/hall/details?id=99&cid=98" target="_blank" data-i18n="nav.venueMap">Venue Map</a></li>
+            <li><button id="theme-button" data-i18n="theme.button">Dark Mode</button></li>
+            <li><button id="language-button" data-i18n="language.button">EN/中文</button></li>
+        </ul>
+    </div>
+    <!-- headings
+
+        Purpose:
+        - Main header section of the webpage
+        - Contains the title, subtitle, image, and key buttons for the webpage
+
+        When To Modify:
+        - [ ] Project 2 (REQUIRED FEATURE) 
+        - [ ] Project 3 (REQUIRED FEATURE) 
+        - [ ] Project 4 (REQUIRED FEATURE) 
+        - [ ] Any time after
+        -->
+    <div class="header-container">
+        <div class="header-content">
+            <!-- First header item (formerly header-left) -->
+            <div class="header-item">
+                <img id="header-img" src="./img/logo500.webp" alt="Alicia and Stevie engagement photo">
+                <h1 data-i18n="header.title">Ever After Weddings</h1>
+            </div>
+
+            <!-- Second header item (formerly header-right) -->
+            <div class="header-item">
+                <h3 data-i18n="header.date">July 6, 2024 • Wuhan, China</h3>
+                <div class="header-buttons">
+                    <button class="header-button" data-i18n="header.rsvpButton">RSVP by June 1</button>
+                    <button class="header-button" data-i18n="header.detailsButton">View Wedding Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- about
+
+        Purpose:
+        - Section for general info about the event
+        - Contains a video, description, and key points about the event
+
+        When To Modify:
+        - [ ] Project 2 (REQUIRED FEATURE) 
+        - [ ] Project 2 (STRETCH FEATURE) 
+        - [ ] Project 4 (STRETCH FEATURE) 
+        - [ ] Any time between / after
+        -->
+    <h2 id="about" data-i18n="about.title">Our Wedding Story</h2>
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/M7rWY4Amabs?si=ea7P6V-KoH8_N0r-"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <div class="wedding-letter">
+        <p data-i18n="letter.greeting">Dear cherished family and friends,</p>
+
+            <p data-i18n="letter.p1">With hearts full of joy, we invite you to witness the union of two souls from different shores of China
+                at the Yan Yang Tian Banquet Center (Living Room Hall) in Wuhan. Alicia, the Lingnan rose who grew up
+                amidst
+                the lychee orchards of Guangdong, and Stevie, the Wuhan lad nurtured by the Yangtze River's currents,
+                found our
+                serendipity in Shanghai's bustling streets where eastern tides meet southern breezes. Though 1,100
+                kilometers once
+                separated our childhood homes, love built bridges between the Pearl River Delta and Jianghan Plain.</p>
+
+            <p data-i18n="letter.p2">On July 6, 2024, we choose to begin our forever in the golden halls of Yan Yang Tian - where contemporary
+                Wuhan hospitality meets timeless tradition. The venue's signature "Dual River Hall" symbolizes our
+                journey:
+                its ceiling cascades with 2,368 crystal droplets representing the Yangtze's vitality, while floor
+                mosaics
+                depict the Pearl River's meandering grace.</p>
+
+            <p data-i18n="letter.p3">As dusk falls, the banquet will unveil a culinary dialogue between our homelands. Wuhan's signature re
+                gan mian will be served in delicate Cantonese bamboo steamers, while Guangdong's signature roasted meats
+                will be
+                presented with Jingchu-style spicy dipping sauces. The centerpiece dessert - lychee-infused douhua
+                floating in osmanthus syrup - embodies our sweet fusion.</p>
+
+            <p data-i18n="letter.p4">We've prepared bilingual journey maps guiding guests through three symbolic zones: the "Pearl River
+                Memory Corridor" with Alicia's childhood photos from Shunde water towns, the "Yangtze Heritage Wall"
+                displaying
+                Stevie's family heirlooms from Hankou, and the "Shanghai Fusion Rotunda" where our love story unfolds
+                through interactive holograms.</p>
+    </div>
+
+    <h3 data-i18n="highlights.title">Wedding Highlights</h3>
+    <ul>
+        <li><b>Cultural Fusion:</b> <i>Blending Eastern traditions with modern Western elements</i></li>
+        <li><b>Garden Celebration:</b> <i>Outdoor ceremony by the Yangtze River followed by lakeside reception</i></li>
+        <li><b>Culinary Journey:</b> <i>Signature dishes from Wuhan and customized wedding banquet</i></li>
+    </ul>
+
+    <!-- schedule
+
+        Purpose:
+        - Section for specific info about the event's schedule
+        - Contains images and descriptions of each activity
+
+        When To Modify:
+        - [ ] Project 2 (REQUIRED FEATURE) 
+        - [ ] Project 4 (STRETCH FEATURE) 
+        - [ ] Any time between / after
+        -->
+
+    <h2 id="schedule" data-i18n="schedule.title">Wedding Day Schedule</h2>
+    <div class="schedule-container">
+        <div class="schedule-item">
+            <img alt="Serene garden ceremony setting with floral arch and aisle lined with peonies"
+                src="./img/wedding1.jpg" />
+            <h3 data-i18n="schedule.ceremony.title">4:00 PM - Ceremony</h3>
+            <p>Exchange of vows at the Peony Pavilion<br>
+                Traditional Chinese tea ceremony<br>
+                Group photo session</p>
+        </div>
+
+        <div class="schedule-item">
+            <img alt="Elegant banquet hall decorated with golden lanterns and floral centerpieces"
+                src="./img/wedding2.JPG" />
+            <h3>6:00 PM - Reception</h3>
+            <p>Cocktail hour with local delicacies<br>
+                8-course wedding banquet<br>
+                Toasts and well-wishes</p>
+        </div>
+
+        <div class="schedule-item">
+            <img alt="Dance floor with glowing lanterns under starry sky" src="./img/wedding3.JPG" />
+            <h3>6:30 PM - Wedding Celebration</h3>
+            <p>First dance as married couple<br>
+                Live band performance<br>
+                Midnight snack station with Wuhan specialties</p>
+        </div>
+    </div>
+
+    <!-- rsvp [PLACEHOLDER] [ADDED IN UNIT 6] -->
+    <!-- rsvp
+
+    Purpose:
+    - Section for users to sign up for the event
+    - Contains a form for users to input their information, 
+    and a list of other users who have signed up
+    -->
+    <div id="rsvp">
+        <h2>RSVP</h2>
+        <p id="rsvp-count">⭐ 3 people have RSVP'd to this event!</p>
+        <div class="rsvp-container">
+            <div class="rsvp-para">
+                <!-- info goes here -->
+                <p>Please join us on July 6, 2024 at Yan Yang Tian Banquet Center in Wuhan<br>
+                    to celebrate the marriage of Alicia Zhang and Stevie Hu.<br>
+                    Kindly confirm your attendance by June 1st to secure your seat.<br>
+                    <em>Please indicate dietary preferences and number of guests below.</em>
+                </p>
+            </div>
+            <div class="rsvp-participants">
+                <p>🎉 Uncle Bob from Texas confirmed</p>
+                <p>🎉 Aunt Lisa from California confirmed</p>
+                <p>🎉 Cousin Emily from New York confirmed</p>
+            </div>
+        </div>
+
+        <!--- Sign RSVP Form --->
+        <div class="form-container">
+            <form id="rsvp-form" title="rsvp-form">
+                <div class="form-group">
+                    <label for="name" data-i18n="form.name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="e.g. Mr. John Smith / Ms. Emily Davis"
+                        required pattern="[A-Za-z ]{2,}">
+                </div>
+
+                <div class="form-group">
+                    <label for="email" data-i18n="form.email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="name@example.com" required
+                        title="Please enter a valid email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="region" data-i18n="form.region">Region:</label>
+                    <select id="region" name="region" required>
+                        <option value="">Select your region</option>
+                        <option value="hubei" data-i18n="region.hubei">Hubei, China</option>
+                        <option value="guangdong" data-i18n="region.guangdong">Guangdong, China</option>
+                        <option value="overseas" data-i18n="region.overseas">Overseas</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Dietary Needs:</label>
+                    <div class="diet-options">
+                        <label><input type="checkbox" name="diet" value="vegetarian"> Vegetarian</label>
+                        <label><input type="checkbox" name="diet" value="halal"> Halal</label>
+                        <label><input type="checkbox" name="diet" value="gluten-free"> Gluten-free</label>
+                        <label><input type="checkbox" name="diet" value="none"> None</label>
+                    </div>
+                </div>
+
+                <div class="form-group guest-selection">
+                    <label>Number of Guests:</label>
+                    <div class="guest-buttons">
+                        <button type="button" class="guest-btn" data-guests="1">1</button>
+                        <button type="button" class="guest-btn" data-guests="2">2</button>
+                        <button type="button" class="guest-btn" data-guests="3">3</button>
+                        <button type="button" class="guest-btn" data-guests="4">4</button>
+                        <button type="button" class="guest-btn" data-guests="5">5</button>
+                        <button type="button" class="guest-btn" data-guests="5">More than 5</button>
+                    </div>
+                    <input type="hidden" id="guests" name="guests" value="1" required>
+                </div>
+            </form>
+            <button id="rsvp-button">Confirm Attendance</button>
+        </div>
+    </div>
+    <!-- success modal [PLACEHOLDER] [ADDED IN UNIT 9] -->
+
+    <!-- links
+
+        Purpose:
+        - Links to other resources related to the event
+
+        When To Modify:
+        - [ ] Project 2 (STRETCH FEATURE) 
+        - [ ] Project 4 (STRETCH FEATURE) 
+        - [ ] Any time between / after
+        -->
+    <h2 id="RSVP">RSVP</h2>
+
+    <!-- This <a> block is one link.  Copy and paste all 6 lines to create another link. -->
+    <!-- <a class="block" href="https://www.codepath.org">
+        <article>
+            <h3>Link title</h3>
+            <p>Link description</p>
+        </article>
+    </a> -->
+    <!-- Link 1: Wedding Planning Guide -->
+    <a class="block"
+        href="https://www.hunliji.com/p/frontend/creation-platform/app-preview-wedding-card/dist/index.html?cardId=MTA2NzEzOTQyZmlyZV9jbG91ZA#/"
+        target="_blank">
+        <article>
+            <h3>Invitation Letter</h3>
+            <p>
+            </p>
+        </article>
+    </a>
+
+    <a class="block" href="https://example.com/registry" target="_blank">
+        <article>
+            <h3>Gift Registry</h3>
+            <p>Your presence is our greatest gift. For those who wish to contribute, we've created a honeymoon fund.</p>
+        </article>
+    </a>
+
+    <!-- footer [PLACEHOLDER] [ADDED IN UNIT 3] -->
+    <footer class="footer">
+        <p>
+            <a href="https://www.hunliji.com/p/frontend/creation-platform/app-preview-wedding-card/dist/index.html?cardId=MTA2NzEzOTQyZmlyZV9jbG91ZA#/"
+                target="_blank">Invitation</a> /
+            <a href="https://www.google.com/maps/place/%E6%AD%A6%E6%B1%89%E5%AE%A2%E5%8E%85/@30.6725419,114.2792254,19z/data=!3m1!4b1!4m6!3m5!1s0x342ea9b14df20527:0x22f3f46f608927c0!8m2!3d30.6725407!4d114.2798691!16s%2Fg%2F1hf8bpwh6?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D"
+                target="_blank">Wedding Ceremony Address</a>
+        </p>
+    </footer>
+
+    <!-- script [PLACEHOLDER] [ADDED IN UNIT 5] -->
+    <script src="index.js"></script>
+</body>
+
+</html>

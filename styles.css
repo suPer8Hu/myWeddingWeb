@@ -1,0 +1,708 @@
+/*** You will not need this file until Unit 3 ***/
+/*** VSCodeEDU preview fix 
+
+  Purpose:
+  - Fix VSCodeEDU issue that causes a white border to show around
+    the preview window
+
+  When To Modify:
+  - If you change the background color of your webpage, you may need to update this rule too.
+***/
+html {
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+    scroll-padding-top: 30px;
+}
+
+/*** body ***/
+body {
+    background-color: var(--bg-color);
+    font-size: 16px;
+    color: var(--text-color);
+    font-family: "Georgia", serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    padding-top: 45px;
+}
+
+/*** HEADER SECTION ***/
+.header-container {
+    position: relative;
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    background: url("./img/logo500.webp") center/cover no-repeat;
+    filter: blur(0px);
+    /* Blurred effect */
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Overlay to ensure text readability */
+.header-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+}
+
+/*** HEADER CONTENT ***/
+.header-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-item:nth-of-type(1) {
+    /* Styles for the first header item (formerly header-left) */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.header-item:nth-of-type(2) {
+    /* Styles for the second header item (formerly header-right) */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Base styles for all header items */
+.header-item {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+
+/*** Text ***/
+h1 {
+    color: #b76e79;
+    /* Soft romantic pink */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+}
+
+h2 {
+    color: #8b5a5a;
+    font-size: 2em;
+    margin-top: 40px;
+}
+
+h3 {
+    color: #a0522d;
+    font-size: 1.8em;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    width: 80%;
+    margin: 10px auto;
+    color: #444;
+    text-align: justify;
+}
+
+/*** wedding letter ***/
+.wedding-letter {
+    font-family: "Baskerville", "Garamond", "Times New Roman", serif;
+    font-size: 28px;
+    font-style: italic;
+    line-height: 1.0;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    color: #333;
+    border-radius: 5px;
+    position: relative;
+}
+
+.wedding-letter p {
+    font-size: 18px;
+    margin: 2em auto;
+    max-width: 680px;
+    text-align: justify;
+    position: relative;
+    padding: 0 1em;
+}
+
+.wedding-letter p:first-child {
+    font-style: italic;
+    font-size: 28px;
+    text-align: center;
+    margin: 2em 0 -1em;
+}
+
+.wedding-letter p::first-letter {
+    font-size: 150%;
+    font-weight: bold;
+    color: #8b5d33;
+    margin-right: 2px;
+}
+
+.wedding-letter p:first-child::first-letter {
+    font-size: 200%;
+}
+
+.wedding-letter::before,
+.wedding-letter::after {
+    content: '❦';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: #8b5d33;
+}
+
+.wedding-letter::before {
+    top: 30px;
+}
+
+.wedding-letter::after {
+    bottom: 30px;
+}
+
+.wedding-letter p:not(:first-child):not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 0.5px;
+    background: #8b5d3355;
+    margin: 1em auto;
+}
+
+.wedding-letter p:not(:first-child)::first-letter {
+    all: initial;
+}
+
+/*** Links Styling with Pseudo-Classes ***/
+a:link {
+    color: #b76e79;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Visited links */
+a:visited {
+    color: #8b5a5a;
+}
+
+/* Hover effect */
+a:hover {
+    color: #ff1493;
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Active links */
+a:active {
+    color: #d147a3;
+    text-decoration: none;
+}
+
+/*** Styling Links Inside Articles ***/
+
+/* Style for article titles inside links */
+a article h3 {
+    color: #a0522d;
+    font-size: 1.6em;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Change color when hovering over article links */
+a:hover article h3 {
+    color: #ff69b4;
+}
+
+/* Style for article descriptions inside links */
+a article p {
+    color: #555;
+    font-size: 1em;
+}
+
+/* Hover effect for article descriptions */
+a:hover article p {
+    color: #444;
+}
+
+/*** Buttons ***/
+button {
+    background-color: #ff69b4;
+    color: white;
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 10px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #d147a3;
+    transform: scale(1.05);
+}
+
+/*** Header Image ***/
+#header-img {
+    width: 80%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 3px solid #b76e79;
+}
+
+
+/*** Images ***/
+img {
+    border-radius: 12px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+#event-schedule img {
+    width: 600px;
+    border: 3px solid #b76e79;
+}
+
+/*** Video Styling ***/
+.video-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*** FOOTER STYLING ***/
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #6a5acd;
+    /* Soft purple */
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.2);
+    /* Shadow effect */
+}
+
+/* Footer Links */
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: #ffb6c1;
+    /* Soft pink hover effect */
+}
+
+/*** Lists ***/
+ul {
+    list-style-type: square;
+    padding: 0;
+    margin: auto;
+    width: 60%;
+}
+
+/*** Schedule Section ***/
+#event-schedule {
+    margin-top: 30px;
+    background-color: rgba(183, 110, 121, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.schedule-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.schedule-item {
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(183, 110, 121, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.schedule-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.schedule-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 2px solid #b76e79;
+    margin-bottom: 15px;
+}
+
+.schedule-item h3 {
+    color: #8b5a5a;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.schedule-item p {
+    font-size: 0.95em;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 992px) {
+    .schedule-container {
+        justify-content: center;
+    }
+
+    .schedule-item {
+        flex: 0 0 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .schedule-item {
+        flex: 0 0 100%;
+    }
+}
+
+/*** Links Section ***/
+.links-section {
+    margin-top: 40px;
+}
+
+/*** Responsive Design for Mobile ***/
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    #event-schedule img {
+        width: 90%;
+    }
+}
+
+/*** Favicon Styling ***/
+link[rel="icon"] {
+    width: 32px;
+    height: 32px;
+}
+
+
+/*** Navigation bar (navbar) ***
+  
+  Purpose:
+  - Add style rules for your website's navbar
+
+  When To Modify:
+  - [ ] Project 4 (REQUIRED FEATURE) 
+  - [ ] Any time after
+***/
+.navbar {
+    background-color: rgba(183, 110, 121, 0.8);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar ul {
+    z-index: 1000;
+    /* Ensures the navbar is on top of other elements */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar ul li {
+    float: left;
+    margin: 10px 20px;
+}
+
+.navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #8b5a5a;
+    color: white;
+}
+
+/* Unique styling for the theme toggle button */
+#theme-button {
+    background-color: #8b5a5a;
+    color: white;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#theme-button:hover {
+    background-color: #ff69b4;
+    border-color: white;
+    transform: scale(1.05);
+}
+
+/*** RSVP [PLACEHOLDER] [ADDED IN UNIT 6] ***/
+/* RSVP Container Layout */
+.rsvp-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.rsvp-para {
+    width: 55%;
+    padding-right: 30px;
+    /* Optional: Add vertical divider */
+    border-right: 1px solid #e8d5c0;
+}
+
+.rsvp-participants {
+    width: 45%;
+    padding-right: 10px;
+    /* Optional: Style enhancements */
+    padding-left: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Participant Entries Styling */
+.rsvp-participants p {
+    background: #fff9f3;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    animation: slideIn 0.3s ease-out;
+}
+
+.rsvp-participants small {
+    display: block;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+
+/*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
+/*** Success Modal [PLACEHOLDER] [ADDED IN UNIT 9] ***/
+/*** Dark Mode [PLACEHOLDER] [ADDED IN UNIT 5] ***/
+/* Default dark mode style */
+.dark-mode {
+    background-color: #1a1a2e;
+    color: #f0f0f0;
+}
+
+/* Header styling in dark mode */
+.dark-mode h1 {
+    color: #ff9cad;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode h2 {
+    color: #d189b9;
+}
+
+.dark-mode h3 {
+    color: #c06c84;
+}
+
+.dark-mode p {
+    color: #e0e0e0;
+}
+
+/* Link styling in dark mode */
+.dark-mode a:link {
+    color: #ff9cad;
+}
+
+.dark-mode a:visited {
+    color: #d189b9;
+}
+
+.dark-mode a:hover {
+    color: #ffb6c1;
+}
+
+.dark-mode a:active {
+    color: #ff69b4;
+}
+
+/* Button styling in dark mode */
+.dark-mode button {
+    background-color: #c06c84;
+    color: #f0f0f0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode button:hover {
+    background-color: #ff69b4;
+}
+
+/* Container styling in dark mode */
+.dark-mode .header-container::before {
+    background: rgba(26, 26, 46, 0.7);
+}
+
+.dark-mode .schedule-item {
+    background-color: rgba(26, 26, 46, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer styling in dark mode */
+.dark-mode .footer {
+    background-color: #3a3a62;
+}
+
+.dark-mode .footer a:hover {
+    color: #ff9cad;
+}
+
+/* Navbar styling in dark mode */
+.dark-mode .navbar {
+    background-color: rgba(54, 48, 98, 0.9);
+}
+
+.dark-mode .navbar ul li a:hover {
+    background-color: #5c458b;
+}
+
+/* Image borders in dark mode */
+.dark-mode img {
+    border-color: #c06c84;
+}
+
+.dark-mode #header-img {
+    border-color: #c06c84;
+}
+
+.dark-mode .schedule-item img {
+    border-color: #c06c84;
+}
+
+
+/* Language button styling */
+#language-button {
+    background-color: #8b5a5a;
+    color: white;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#language-button:hover {
+    background-color: #ff69b4;
+    border-color: white;
+    transform: scale(1.05);
+}
+
+.dark-mode #language-button {
+    background-color: #c06c84;
+    color: #f0f0f0;
+}
+
+.dark-mode #language-button:hover {
+    background-color: #ff69b4;
+}
+
+/*** Custom Colors (OPTIONAL) ***/
+
+:root {
+    --bg-color: #a6a0cf;
+    --text-color: #231942;
+    --bg-color-dark-mode: #3e3377;
+    --text-color-dark-mode: #fff;
+    --accent-color-light: #d2cff5;
+    --accent-color-medium: #684fb5;
+    --accent-color-dark: #482f95;
+    --accent-color-darkest: #231942;
+    --accent-color-green: #28eb76;
+    --error-color: #f8bbd0;
+    --error-color-border: #e63946;
+}
