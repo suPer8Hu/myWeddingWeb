@@ -270,3 +270,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Add event listener for language button
 document.getElementById('language-button').addEventListener('click', toggleLanguage);
+
+
+
+
+
+/*** Carousel Auto-Play ***/
+function initializeCarousels() {
+    const carousels = document.querySelectorAll('.carousel-container');
+    
+    carousels.forEach(container => {
+        const slides = container.querySelectorAll('img');
+        let currentIndex = 0;
+        
+        setInterval(() => {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }, 5000); 
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', initializeCarousels);
