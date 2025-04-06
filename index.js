@@ -105,6 +105,7 @@ const translations = {
     'nav.schedule': 'Schedule',
     'nav.rsvp': 'RSVP',
     'nav.venueMap': 'Venue Map',
+    'nav.gallery': 'Gallery',
     'theme.button': 'Dark Mode',
     'language.button': 'EN/中文',
 
@@ -162,6 +163,7 @@ const translations = {
     'nav.schedule': '日程安排',
     'nav.rsvp': '回复邀请',
     'nav.venueMap': '场地地图',
+    'nav.gallery': '相册',
     'theme.button': '暗黑模式',
     'language.button': 'EN/中文',
 
@@ -292,3 +294,133 @@ function initializeCarousels() {
   }
   
   document.addEventListener('DOMContentLoaded', initializeCarousels);
+
+
+
+
+
+
+
+  /**
+   * Pagination
+   */
+  const pagination = {
+    config: {
+        itemsPerPage: 4,
+        currentPage: 1,
+        totalPages: 0
+    },
+    
+    init: function() {
+        // Make sure we're on the gallery page
+        if (!document.querySelector('.photo-grid')) {
+            console.log('No gallery found on this page');
+            return;
+        }
+        
+        // Select all photo items
+        this.items = document.querySelectorAll('.photo-grid > .photo-item');
+        
+        console.log('Found image containers:', this.items.length);
+        
+        if (this.items.length === 0) {
+            console.warn('No photo items found in the gallery');
+            return;
+        }
+        
+        this.config.totalPages = Math.ceil(this.items.length / this.config.itemsPerPage);
+        console.log('Total pages:', this.config.totalPages);
+        
+        // Create page indicator if it doesn't exist
+        this.createPageIndicator();
+        
+        this.render();
+        this.bindEvents();
+    },
+    
+    createPageIndicator: function() {
+        const controls = document.querySelector('.pagination-controls');
+        if (!controls) {
+            console.warn('Pagination controls not found');
+            return;
+        }
+        
+        if (!document.querySelector('.page-indicator')) {
+            const indicator = document.createElement('div');
+            indicator.className = 'page-indicator';
+            
+            // Insert between prev and next buttons
+            const nextBtn = controls.querySelector('.pagination-btn.next');
+            if (nextBtn) {
+                controls.insertBefore(indicator, nextBtn);
+            } else {
+                controls.appendChild(indicator);
+            }
+        }
+    },
+    
+    render: function() {
+        // Hide all images first
+        this.items.forEach(item => {
+            item.style.display = 'none';
+        });
+        
+        // Calculate which items to show
+        const start = (this.config.currentPage - 1) * this.config.itemsPerPage;
+        const end = Math.min(start + this.config.itemsPerPage, this.items.length);
+        
+        console.log(`Showing items ${start+1} to ${end} (Page ${this.config.currentPage}/${this.config.totalPages})`);
+        
+        // Show current page images
+        for (let i = start; i < end; i++) {
+            this.items[i].style.display = 'block';
+        }
+        
+        // Update pagination buttons
+        const prevBtn = document.querySelector('.pagination-btn.prev');
+        const nextBtn = document.querySelector('.pagination-btn.next');
+        
+        if (prevBtn) prevBtn.disabled = this.config.currentPage === 1;
+        if (nextBtn) nextBtn.disabled = this.config.currentPage === this.config.totalPages || this.config.totalPages === 0;
+        
+        // Update page indicator
+        const indicator = document.querySelector('.page-indicator');
+        if (indicator) {
+            indicator.textContent = `${this.config.currentPage} / ${this.config.totalPages}`;
+        }
+    },
+    
+    bindEvents: function() {
+        const prevBtn = document.querySelector('.pagination-btn.prev');
+        const nextBtn = document.querySelector('.pagination-btn.next');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (this.config.currentPage > 1) {
+                    this.config.currentPage--;
+                    console.log('Previous page, new page:', this.config.currentPage);
+                    this.render();
+                }
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (this.config.currentPage < this.config.totalPages) {
+                    this.config.currentPage++;
+                    console.log('Next page, new page:', this.config.currentPage);
+                    this.render();
+                }
+            });
+        }
+    }
+};
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Checking for gallery page');
+    if (document.querySelector('.gallery-container')) {
+        console.log('Gallery page detected, initializing pagination');
+        pagination.init();
+    }
+});
